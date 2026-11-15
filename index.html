@@ -1,0 +1,369 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Formulario</title>
+
+        <style>
+            * 
+            {
+                box-sizing: border-box;
+            }
+
+
+            form 
+            {
+                width: 60%;
+                max-width: 100%;
+                min-width: 0;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            /* Celular */
+
+            @media (max-width: 600px) 
+            {
+                form 
+                {
+                    width: 100%;
+                }
+
+                body 
+                {
+                    padding: 10px 8px;
+                }
+
+                fieldset 
+                {
+                    padding: 12px;
+                    min-width: 0;
+                }
+
+                .botoes 
+                {
+                    flex-wrap: wrap;
+                    width: 100%;
+                }
+
+                input[type="file"] 
+                {
+                    max-width: 100%;
+                }
+            }
+
+            /* Tablert */
+
+            @media (min-width: 601px) and (max-width: 1024px) 
+            {
+                form 
+                {
+                    width: 80%;
+                }
+            }
+
+            /* Desktop e notebook */
+
+            @media (min-width: 1025px) 
+            {
+                form 
+                {
+                    width: 60%;
+                }
+            }
+
+            body 
+            {
+                display: flex;
+                justify-content: center;
+                align-items: flex-start;
+                min-height: 100vh;
+                width: 100%;
+                margin: 0;
+                padding: 20px 12px;
+            }
+
+            fieldset 
+            {
+                width: 100%;
+                min-width: 0;
+                border-radius: 10px;
+                padding: 20px;
+                margin-bottom: 15px;
+            }
+
+            label 
+            {
+                display: block;
+            }
+
+            input[type="text"],
+            input[type="email"],
+            input[type="password"] 
+            {
+                width: 100%;
+                max-width: 100%;
+                padding: 8px;
+                margin: 10px 0;
+                border: 1px solid black;
+                border-radius: 8px;
+            }
+
+            input[type="date"] 
+            {
+                cursor: pointer;
+                padding: 8px;
+                margin: 10px 0;
+                max-width: 100%;
+                border: 1px solid black;
+                border-radius: 8px;
+            }
+
+            input[type="checkbox"],
+            input[type="radio"] 
+            {
+                cursor: pointer;
+            }
+
+            .curso 
+            {
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                gap: 5px;
+                margin: 10px 0;
+            }
+
+            .curso label 
+            {
+                display: inline;
+            }
+
+            .gender 
+            {
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                gap: 5px;
+                margin: 10px 0;
+            }
+
+            .gender label 
+            {
+                display: inline;
+            }
+
+            .interesses 
+            {
+                display: grid;
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+                gap: 15px;
+            }
+
+            .interesse 
+            {
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+                gap: 5px;
+                min-width: 0;
+            }
+
+            .interesse label 
+            {
+                display: inline;
+            }
+
+            textarea 
+            {
+                width: 100%;
+                max-width: 100%;
+                padding: 8px;
+                border: 1px solid black;
+                border-radius: 8px;
+                resize: vertical;
+            }
+
+            input:focus,
+            textarea:focus 
+            {
+                outline: none;
+                border: 2px solid blue;
+                background-color: #f0f8ff;
+            }
+
+            .botoes 
+            {
+                display: flex;
+                justify-content: center;
+                gap: 15px;
+                margin-top: 20px;
+                margin-bottom: 20px;
+            }
+
+            button 
+            {
+                padding: 10px 25px;
+                border: none;
+                border-radius: 8px;
+                cursor: pointer;
+                background-color: #333;
+                color: white;
+            }
+
+            button:hover 
+            {
+                background-color: #666;
+            }
+            
+            /*Ajustes*/
+            @media (max-width: 600px) 
+            {
+                .interesses 
+                {
+                    grid-template-columns: repeat(2, minmax(0, 1fr));
+                    gap: 15px 8px;
+                }
+
+                .interesse 
+                {
+                    min-width: 0;
+                    white-space: nowrap;
+                }
+
+                .interesse input 
+                {
+                    flex-shrink: 0;
+                }
+            }
+
+        </style>
+    </head>
+    <body>
+        <form id="nome">
+            <fieldset>
+                <legend style="text-align: center;">Dados Pessoais</legend>
+                <label for="fname">Primeiro Nome</label>
+                <input type="text" required id="fname" name="fname">
+
+                <label for="lname">Ultimo Nome</label>
+                <input type="text" required id="lname" name="lname">
+
+                <label for="email">Email</label>
+                <input type="email" required id="email" name="email">
+
+                <label for="password">Senha</label>
+                <input type="password" required id="password" name="password">
+
+                <label for="dateb">Data de Nascimento</label>
+                <input type="date" required id="dateb" name="dateb">
+
+                <fieldset>
+                    <legend>Curso(s)</legend>
+                    <div class="curso">
+                        <label for="engs">Engenharia de Software</label>
+                        <input type="checkbox" id="engs" name="course" value="Engenharia">
+                    </div>
+
+                    <div class="curso">
+                        <label for="cc">Ciencia da Computacao</label>
+                        <input type="checkbox" id="cc" name="course" value="Ciencia">
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Genero</legend>
+                    <div class="gender">
+                        <label for="masculino">Masculino</label>
+                        <input type="radio" id="masculino" name="gender" value="Masculino">
+                    </div>
+
+                    <div class="gender">
+                        <label for="feminino">Feminino</label>
+                        <input type="radio" id="feminino" name="gender" value="Feminino">
+                    </div>
+
+                    <div class="gender">
+                        <label for="outro">Prefiro Nao Informar</label>
+                        <input type="radio" id="outro" name="gender" value="Outro">
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                <legend>Interesses</legend>
+
+                    <div class="interesses">
+
+                        <div class="interesse">
+                            <label for="futebol">Futebol</label>
+                            <input type="checkbox" id="futebol" name="interesses" value="Futebol">
+                        </div>
+
+                        <div class="interesse">
+                            <label for="musica">Musica</label>
+                            <input type="checkbox" id="musica" name="interesses" value="Musica">
+                        </div>
+
+                        <div class="interesse">
+                            <label for="games">Games</label>
+                            <input type="checkbox" id="games" name="interesses" value="Games">
+                        </div>
+
+                        <div class="interesse">
+                            <label for="culinaria">Culinaria</label>
+                            <input type="checkbox" id="culinaria" name="interesses" value="Culinaria">
+                        </div>
+
+                        <div class="interesse">
+                            <label for="filmes">Filmes</label>
+                            <input type="checkbox" id="filmes" name="interesses" value="Filmes">
+                        </div>
+
+                        <div class="interesse">
+                            <label for="leitura">Leitura</label>
+                            <input type="checkbox" id="leitura" name="interesses" value="Leitura">
+                        </div>
+
+                        <div class="interesse">
+                            <label for="academia">Academia</label>
+                            <input type="checkbox" id="academia" name="interesses" value="Academia">
+                        </div>
+
+                        <div class="interesse">
+                            <label for="tecnologia">Tecnologia</label>
+                            <input type="checkbox" id="tecnologia" name="interesses" value="Tecnologia">
+                        </div>
+
+                        <div class="interesse">
+                            <label for="viagens">Viagens</label>
+                            <input type="checkbox" id="viagens" name="interesses" value="Viagens">
+                        </div>
+
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Comentarios</legend>
+
+                    <label for="comentarios">Deixe seu comentario:</label>
+                    <textarea id="comentarios" name="comentarios" rows="5"></textarea>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Foto de perfil</legend>
+
+                    <label for="foto">Selecione uma foto:</label>
+                    <input type="file" id="foto" name="foto" accept="image/*">
+                </fieldset>
+            </fieldset>
+
+            <div class="botoes">
+                <button type="submit">Enviar</button>
+                <button type="reset">Limpar</button>
+            </div>
+        </form>
+    </body>
+    </html>
